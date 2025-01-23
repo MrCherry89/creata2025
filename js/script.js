@@ -49,4 +49,47 @@ $(document).ready(function () {
       },
     ],
   });
+
+  $(".digital-slider").slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          variableWidth: true,
+          autoplay: true,
+        },
+      },
+    ],
+  });
+
+  function initializeSliders(selector) {
+    $(selector).each(function () {
+      $(this).slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              variableWidth: true,
+              autoplay: true,
+            },
+          },
+        ],
+      });
+    });
+  }
+
+  // Инициализация слайдеров
+  $(document).ready(function () {
+    initializeSliders(".our-expertise-slider");
+  });
 });
