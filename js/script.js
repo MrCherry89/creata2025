@@ -50,6 +50,93 @@ $(document).ready(function () {
     ],
   });
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".style", {
+    rotation: 360, // Один полный оборот
+    scrollTrigger: {
+      trigger: ".style", // Триггер — элемент с классом .style
+      start: "top bottom", // Начало анимации
+      end: "bottom top", // Конец анимации
+      scrub: true, // Анимация синхронизируется с прокруткой
+      onUpdate: (self) => {
+        const direction = self.direction; // Определяем направление (1 — вниз, -1 — вверх)
+        const rotate = direction === 1 ? "+=5" : "-=5"; // Меняем вращение
+        gsap.to(".style", { rotation: rotate, duration: 0.5 });
+      },
+    },
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".trused-img1", {
+    y: -100, // Сдвиг по оси Y (вниз на 100px)
+    scrollTrigger: {
+      trigger: ".trused-img1", // Триггер — изображение
+      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
+      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
+      scrub: true, // Анимация синхронизируется с прокруткой
+    },
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".trused-img2", {
+    y: -10, // Сдвиг по оси Y (вниз на 100px)
+    scrollTrigger: {
+      trigger: ".trused-img2", // Триггер — изображение
+      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
+      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
+      scrub: true, // Анимация синхронизируется с прокруткой
+    },
+  });
+
+  gsap.to(".sticker-img1", {
+    y: -50,
+    scrollTrigger: {
+      trigger: ".sticker-img1", // Триггер — изображение
+      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
+      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
+      scrub: true, // Анимация синхронизируется с прокруткой
+    },
+  });
+  gsap.to(".sticker-img2", {
+    x: 50, // Сдвиг по оси Y (вниз на 100px)
+    scrollTrigger: {
+      trigger: ".sticker-img2", // Триггер — изображение
+      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
+      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
+      scrub: true, // Анимация синхронизируется с прокруткой
+    },
+  });
+  gsap.to(".sticker-img3", {
+    x: -50, // Сдвиг по оси Y (вниз на 100px)
+    scrollTrigger: {
+      trigger: ".sticker-img3", // Триггер — изображение
+      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
+      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
+      scrub: true, // Анимация синхронизируется с прокруткой
+    },
+  });
+  gsap.to(".main-info .img2", {
+    x: 50, // Сдвиг по оси Y (вниз на 100px)
+    scrollTrigger: {
+      trigger: ".main-info .img2", // Триггер — изображение
+      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
+      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
+      scrub: true, // Анимация синхронизируется с прокруткой
+    },
+  });
+  gsap.to(".main-info .img3", {
+    x: -50, // Сдвиг по оси Y (вниз на 100px)
+    scrollTrigger: {
+      trigger: ".main-info .img3", // Триггер — изображение
+      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
+      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
+      scrub: true, // Анимация синхронизируется с прокруткой
+    },
+  });
+
   $(".digital-slider").slick({
     slidesToShow: 3,
     slidesToScroll: 1,
