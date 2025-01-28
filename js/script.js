@@ -32,6 +32,9 @@ $(document).ready(function () {
   $(".touch-form").validate({
     errorPlacement: function (error, element) {},
   });
+  $(".contact-form").validate({
+    errorPlacement: function (error, element) {},
+  });
 
   $(".our-projects-slider").slick({
     slidesToShow: 3,
@@ -178,5 +181,43 @@ $(document).ready(function () {
   // Инициализация слайдеров
   $(document).ready(function () {
     initializeSliders(".our-expertise-slider");
+  });
+
+  $(".drop-menu").click(function () {
+    $(this).toggleClass("is-active");
+    $(".menu-wrap").toggleClass("open");
+    $(".header-info").toggleClass("no-radius");
+    $("body, html").toggleClass("overflow");
+  });
+
+  $(".drop-item").click(function () {
+    $(this).closest("li").find(".sub-menu").toggleClass("show");
+    $(this).find("img").toggleClass("rotate");
+  });
+
+  $(".cases .tags button").click(function () {
+    $(".cases .tags button").removeClass("active");
+    $(this).addClass("active");
+  });
+
+  $(".cases .tab-content .border-btn").click(function () {
+    $(".cases .cases-items .main-info").removeClass("hide");
+  });
+
+  $(".tab-content").hide();
+  $('.tab-content[data-tab="tab1"]').addClass("active").show();
+  $('.tab-button[data-tab="tab1"]').addClass("active");
+
+  // Обработка кликов по кнопкам
+  $(".tab-button").on("click", function () {
+    const target = $(this).data("tab");
+
+    // Убрать активные классы и скрыть все вкладки
+    $(".tab-button, .tab-content").removeClass("active");
+    $(".tab-content").hide();
+
+    // Показать активную вкладку
+    $(this).addClass("active");
+    $(`.tab-content[data-tab="${target}"]`).addClass("active").show();
   });
 });

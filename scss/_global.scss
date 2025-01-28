@@ -1,4 +1,5 @@
 $pink: #e31c93;
+$blue: #00b3f2;
 
 body,
 html {
@@ -329,6 +330,9 @@ a {
       }
     }
   }
+  svg {
+    fill: #e31c93;
+  }
   .img6 {
     display: none;
     @media (max-width: 1024px) {
@@ -542,6 +546,21 @@ a {
       }
     }
   }
+  &.blue-theme {
+    svg {
+      fill: $blue;
+    }
+    .send {
+      &:hover {
+        background: $blue;
+      }
+    }
+    .touch-title {
+      .pink {
+        color: $blue;
+      }
+    }
+  }
 }
 
 .black-btn {
@@ -565,4 +584,44 @@ input.error {
 
 textarea.error {
   border-color: #e50000 !important;
+}
+
+.drop-menu {
+  @include dir-col;
+  @include justify-center;
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: 1024px) {
+    @include flex;
+  }
+
+  .line {
+    width: 30px;
+    height: 2px;
+    background-color: #1c1c1c;
+    display: block;
+    margin: 2px auto;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.drop-menu.is-active .line:nth-child(3) {
+  opacity: 0;
+}
+
+.drop-menu.is-active .line:nth-child(1) {
+  -webkit-transform: translateY(7px) rotate(45deg);
+  -ms-transform: translateY(7px) rotate(45deg);
+  -o-transform: translateY(7px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
+}
+
+.drop-menu.is-active .line:nth-child(2) {
+  -webkit-transform: translateY(1px) rotate(-45deg);
+  -ms-transform: translateY(1px) rotate(-45deg);
+  -o-transform: translateY(1px) rotate(-45deg);
+  transform: translateY(1px) rotate(-45deg);
 }
