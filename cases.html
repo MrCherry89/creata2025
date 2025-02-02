@@ -57,7 +57,13 @@
 
     <div class="cases">
       <div class="wrapper">
-        <h2>КЕЙСЫ <img src="img/cases-title-circle.svg" alt="" /></h2>
+        <h2>
+          КЕЙСЫ
+          <span class="circle">
+            <img src="img/cases-title-circle.svg" alt="" class="img1" />
+            <img src="img/cases-title-circle2.svg" alt="" class="img2" />
+          </span>
+        </h2>
         <div class="top">
           <div class="tab-buttons">
             <button class="tab-button" data-tab="tab1">
@@ -780,16 +786,17 @@
             </svg>
             <input type="text" placeholder="Имя" name="name" required />
             <input
+              type="text"
+              placeholder="Название компании"
+              name="company"
+              required
+            />
+            <input type="email" placeholder="Email" name="mail" required />
+            <input
               type="tel"
               placeholder="Телефон"
               name="phone"
               class="phone-number-input"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Название вашей компании"
-              name="company"
               required
             />
             <textarea

@@ -53,6 +53,35 @@ $(document).ready(function () {
     ],
   });
 
+  $(".project-info-slider").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: true,
+    prevArrow: $(".project-info-slider-wrap .slider-navigation .slick-prev"),
+    nextArrow: $(".project-info-slider-wrap .slider-navigation .slick-next"),
+  });
+
+  $(".other-projects-slider").slick({
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          variableWidth: true,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          speed: 1000,
+          cssEase: "ease",
+        },
+      },
+    ],
+  });
+
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.to(".style", {
