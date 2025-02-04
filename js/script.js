@@ -62,6 +62,65 @@ $(document).ready(function () {
     nextArrow: $(".project-info-slider-wrap .slider-navigation .slick-next"),
   });
 
+  $(".objectives-slider").slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: true,
+    prevArrow: $(".objectives-slider-wrap .slider-navigation .slick-prev"),
+    nextArrow: $(".objectives-slider-wrap .slider-navigation .slick-next"),
+    responsive: [
+      {
+        breakpoint: 1401,
+        settings: {
+          slidesToShow: 1,
+          variableWidth: true,
+        },
+      },
+    ],
+  });
+
+  const images = document.querySelectorAll('.mtc-banner .img');
+
+  // Проверяем ширину экрана
+  if (window.innerWidth > 767) {
+    images.forEach((img, index) => {
+      // Добавляем эффект при наведении
+      img.addEventListener('mouseenter', () => {
+        gsap.to(img, {
+          scale: 1.1, // Увеличение размера
+          rotate: 5, // Лёгкое вращение
+          x: (index % 2 === 0 ? 10 : -10), // Сдвиг влево или вправо в зависимости от позиции
+          y: -10, // Лёгкий сдвиг вверх
+          duration: 0.4, // Длительность анимации
+          ease: 'power3.out' // Плавное замедление
+        });
+      });
+  
+      // Возврат изображения к исходному состоянию
+      img.addEventListener('mouseleave', () => {
+        gsap.to(img, {
+          scale: 1, // Исходный размер
+          rotate: 0, // Убираем вращение
+          x: 0, // Возвращаем позицию по X
+          y: 0, // Возвращаем позицию по Y
+          duration: 0.6, // Длительность возврата
+          ease: 'power3.out' // Плавность
+        });
+      });
+    });
+  } else {
+    console.log('Эффекты отключены для мобильных устройств');
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth <= 767) {
+      console.log('Эффекты отключены на мобильных устройствах');
+      gsap.killTweensOf(images); // Убираем все текущие анимации
+    }
+  });
+  
+
   $(".other-projects-slider").slick({
     slidesToShow: 2,
     slidesToScroll: 1,

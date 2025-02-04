@@ -497,6 +497,7 @@ a {
       textarea {
         resize: none;
         height: 70px;
+        background: transparent;
         width: 100%;
         width: 100%;
         border-bottom: 1px solid #1c1c1c;
@@ -521,6 +522,7 @@ a {
         padding-top: 0;
         color: #1c1c1c;
         font-size: 20px;
+        background: transparent;
         font-weight: 700;
         @include placeholder {
           color: #1c1c1c;
