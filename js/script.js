@@ -119,6 +119,21 @@ $(document).ready(function () {
       gsap.killTweensOf(images); // Убираем все текущие анимации
     }
   });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Анимация вращения круга
+  gsap.to(".circle-results", {
+    rotate: 50, // Полный поворот (360 градусов)
+    duration: 10, // Очень медленная анимация
+    ease: "linear", // Линейная плавность
+    scrollTrigger: {
+      trigger: ".circle-results", // Элемент, который отслеживается
+      start: "top 80%", // Когда верх элемента достигает 80% окна
+      end: "bottom 20%", // Когда низ элемента выйдет за 20% окна
+      scrub: true, // Синхронизация с прокруткой
+    }
+  });
   
 
   $(".other-projects-slider").slick({

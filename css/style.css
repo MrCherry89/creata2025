@@ -5000,6 +5000,7 @@ textarea.error {
 
 .results {
   position: relative;
+  z-index: 0;
 }
 .results .banner-img-style {
   position: absolute;
@@ -5151,6 +5152,7 @@ textarea.error {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    margin-left: 70px;
   }
 }
 .results .results-info .info .cub img {
@@ -5165,6 +5167,24 @@ textarea.error {
     position: relative;
     left: 0px;
     animation: moveLeft 2s ease-in-out infinite alternate;
+  }
+}
+.results .circle-results {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  z-index: -1;
+}
+@media (max-width: 1700px) {
+  .results .circle-results {
+    width: 40vw;
+  }
+}
+@media (max-width: 767px) {
+  .results .circle-results {
+    width: 65vw;
+    top: 85%;
+    right: -60px;
   }
 }
 
