@@ -578,6 +578,36 @@ a {
       }
     }
   }
+  &.orange-theme {
+    svg {
+      fill: #EE7103;
+    }
+    .send {
+      &:hover {
+        background: #EE7103;
+      }
+    }
+    .touch-title {
+      .pink {
+        color: #EE7103;
+      }
+    }
+  }
+  &.purple-theme {
+    svg {
+      fill: #5B0097;
+    }
+    .send {
+      &:hover {
+        background: #5B0097;
+      }
+    }
+    .touch-title {
+      .pink {
+        color: #5B0097;
+      }
+    }
+  }
 }
 
 .black-btn {

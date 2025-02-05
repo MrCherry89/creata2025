@@ -80,60 +80,6 @@ $(document).ready(function () {
     ],
   });
 
-  const images = document.querySelectorAll('.mtc-banner .img');
-
-  // Проверяем ширину экрана
-  if (window.innerWidth > 767) {
-    images.forEach((img, index) => {
-      // Добавляем эффект при наведении
-      img.addEventListener('mouseenter', () => {
-        gsap.to(img, {
-          scale: 1.1, // Увеличение размера
-          rotate: 5, // Лёгкое вращение
-          x: (index % 2 === 0 ? 10 : -10), // Сдвиг влево или вправо в зависимости от позиции
-          y: -10, // Лёгкий сдвиг вверх
-          duration: 0.4, // Длительность анимации
-          ease: 'power3.out' // Плавное замедление
-        });
-      });
-  
-      // Возврат изображения к исходному состоянию
-      img.addEventListener('mouseleave', () => {
-        gsap.to(img, {
-          scale: 1, // Исходный размер
-          rotate: 0, // Убираем вращение
-          x: 0, // Возвращаем позицию по X
-          y: 0, // Возвращаем позицию по Y
-          duration: 0.6, // Длительность возврата
-          ease: 'power3.out' // Плавность
-        });
-      });
-    });
-  } else {
-    console.log('Эффекты отключены для мобильных устройств');
-  }
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth <= 767) {
-      console.log('Эффекты отключены на мобильных устройствах');
-      gsap.killTweensOf(images); // Убираем все текущие анимации
-    }
-  });
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Анимация вращения круга
-  gsap.to(".circle-results", {
-    rotate: 50, // Полный поворот (360 градусов)
-    duration: 10, // Очень медленная анимация
-    ease: "linear", // Линейная плавность
-    scrollTrigger: {
-      trigger: ".circle-results", // Элемент, который отслеживается
-      start: "top 80%", // Когда верх элемента достигает 80% окна
-      end: "bottom 20%", // Когда низ элемента выйдет за 20% окна
-      scrub: true, // Синхронизация с прокруткой
-    }
-  });
   
 
   $(".other-projects-slider").slick({
