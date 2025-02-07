@@ -101,6 +101,19 @@ $(document).ready(function () {
       },
     ],
   });
+  
+
+
+  $(".recording-btn").on("click", function() {
+    $(this).hide();
+    
+    let video = $(this).closest(".video").find("video");
+    
+    video.addClass("show");  // Добавляем класс
+    video[0].play();         // Запускаем видео через JS
+
+    $(this).closest(".video").find(".image").addClass("hide");
+});
 
   gsap.registerPlugin(ScrollTrigger);
 

@@ -593,6 +593,36 @@ a {
       }
     }
   }
+  &.orange-theme2 {
+    svg {
+      fill: #F04D2A;
+    }
+    .send {
+      &:hover {
+        background: #F04D2A;
+      }
+    }
+    .touch-title {
+      .pink {
+        color: #F04D2A;
+      }
+    }
+  }
+  &.green-theme {
+    svg {
+      fill: #004F32;
+    }
+    .send {
+      &:hover {
+        background: #004F32;
+      }
+    }
+    .touch-title {
+      .pink {
+        color: #004F32;
+      }
+    }
+  }
   &.purple-theme {
     svg {
       fill: #5B0097;
