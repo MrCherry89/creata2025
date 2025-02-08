@@ -251,13 +251,6 @@ a {
   }
 }
 
-.animation-text span {
-  display: inline-block;
-  transform-origin: center center;
-  transform: scale(0) rotateX(90deg);
-  opacity: 0;
-}
-
 .in-touch {
   padding: 150px 0 50px;
   overflow: hidden;
