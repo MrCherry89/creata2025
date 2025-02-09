@@ -4263,7 +4263,7 @@ textarea.error {
 .other-projects.bg-yellow:after {
   content: "";
   position: absolute;
-  top: -60vw;
+  top: -50vw;
   left: 0;
   z-index: -1;
   background: url(../img/yellow-gradient.svg);
@@ -4271,7 +4271,12 @@ textarea.error {
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  height: 120vw;
+  height: 110vw;
+}
+@media (max-width: 767px) {
+  .other-projects.bg-yellow:after {
+    top: -10vw;
+  }
 }
 .other-projects.bg-yellow.opacity:after {
   opacity: 0.5;
@@ -4992,6 +4997,75 @@ textarea.error {
   }
 }
 
+.prisopolia-banner {
+  background: #7600C4 url(../img/prisopolia-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .prisopolia-banner {
+    min-height: calc(100vh - 86px);
+  }
+}
+@media (max-width: 767px) {
+  .prisopolia-banner {
+    min-height: calc(100vh - 70px);
+  }
+}
+.prisopolia-banner .wrapper {
+  margin: auto;
+  position: relative;
+  z-index: 0;
+}
+.prisopolia-banner .wrapper .info {
+  position: relative;
+  z-index: 0;
+}
+.prisopolia-banner .wrapper .info img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.prisopolia-banner .wrapper .info .date {
+  position: absolute;
+  bottom: 80px;
+  left: 0px;
+  color: #FFF;
+  text-align: right;
+  font-family: "HeliosExt";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+@media (max-width: 1300px) {
+  .prisopolia-banner .wrapper .info .date {
+    bottom: 0;
+    font-size: 22px;
+  }
+}
+@media (max-width: 767px) {
+  .prisopolia-banner .wrapper .info .date {
+    position: static;
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    font-size: 20px;
+  }
+}
+
 .home-menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5575,6 +5649,9 @@ textarea.error {
     font-size: 18px;
   }
 }
+.project-information .goals2 .info-block .texts .item .number.purple {
+  color: #5B0097;
+}
 .project-information .goals2 .info-block .texts .item .text {
   padding-top: 15px;
   color: #000;
@@ -5770,6 +5847,21 @@ textarea.error {
 }
 .objectives .objectives-slider-wrap .objectives-slider .item.orange4 {
   background: #FFF0C9;
+}
+.objectives .objectives-slider-wrap .objectives-slider .item.purple1 {
+  background: #501B72;
+}
+.objectives .objectives-slider-wrap .objectives-slider .item.purple2 {
+  background: #632989;
+}
+.objectives .objectives-slider-wrap .objectives-slider .item.purple2 span, .objectives .objectives-slider-wrap .objectives-slider .item.purple2 p {
+  color: white;
+}
+.objectives .objectives-slider-wrap .objectives-slider .item.yellow3 {
+  background: #FFE000;
+}
+.objectives .objectives-slider-wrap .objectives-slider .item.yellow4 {
+  background: #FFF080;
 }
 .objectives .objectives-slider-wrap .objectives-slider .item p {
   margin-top: auto;
@@ -5987,6 +6079,68 @@ textarea.error {
     position: relative;
     left: 0px;
     animation: moveLeft 2s ease-in-out infinite alternate;
+  }
+}
+.results .results-info .info .img-wrap {
+  border-radius: 20px;
+  background: linear-gradient(180deg, #611394 37.5%, #1B171E 100%);
+  padding: 20px;
+  min-height: 400px;
+  position: relative;
+  z-index: 0;
+}
+@media (max-width: 767px) {
+  .results .results-info .info .img-wrap {
+    min-height: 300px;
+  }
+}
+.results .results-info .info .img-wrap .img1 {
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+}
+@media (max-width: 1200px) {
+  .results .results-info .info .img-wrap .img1 {
+    width: 150px;
+    bottom: -30px;
+    left: -30px;
+  }
+}
+@media (max-width: 767px) {
+  .results .results-info .info .img-wrap .img1 {
+    width: 120px;
+  }
+}
+.results .results-info .info .img-wrap .img2 {
+  right: 10px;
+  bottom: 10px;
+  position: absolute;
+}
+@media (max-width: 1200px) {
+  .results .results-info .info .img-wrap .img2 {
+    width: 270px;
+  }
+}
+@media (max-width: 767px) {
+  .results .results-info .info .img-wrap .img2 {
+    width: 170px;
+  }
+}
+.results .results-info .info .img-wrap p {
+  color: #FFF;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+}
+@media (max-width: 1200px) {
+  .results .results-info .info .img-wrap p {
+    font-size: 26px;
+  }
+}
+@media (max-width: 767px) {
+  .results .results-info .info .img-wrap p {
+    font-size: 20px;
   }
 }
 .results .circle-results {
@@ -6507,6 +6661,61 @@ textarea.error {
     width: 100%;
     min-height: inherit;
   }
+}
+@media (max-width: 767px) {
+  .results.results-purple {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .results.results-purple .results-info {
+    margin-top: 80px;
+  }
+}
+.results.results-purple .results-info .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .results.results-purple .results-info .info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+.results.results-purple .results-info .info .list {
+  width: calc(55% - 30px);
+  margin-top: 10px;
+}
+@media (max-width: 1024px) {
+  .results.results-purple .results-info .info .list {
+    width: 100%;
+  }
+}
+.results.results-purple .results-info .info .img-wrap {
+  width: calc(45% - 30px);
+}
+@media (max-width: 1024px) {
+  .results.results-purple .results-info .info .img-wrap {
+    width: 100%;
+    margin-top: 50px;
+  }
+}
+.results.results-purple .info {
+  width: calc(55% - 30px);
+}
+.results.results-purple .info .list {
+  border-top: 2px solid #510880;
+}
+.results.results-purple .info .list .item {
+  border-bottom: 2px solid #510880;
 }
 
 @keyframes rotate {
@@ -8354,6 +8563,28 @@ textarea.error {
   .merch-info-block .merch-info.info5 p {
     width: 100%;
   }
+}
+
+.images-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 767px) {
+  .images-wrap {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+.images-wrap .img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.images-wrap .img img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
