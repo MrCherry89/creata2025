@@ -37,6 +37,28 @@ $(document).ready(function () {
     nextArrow: $(".project-info-slider-wrap .slider-navigation .slick-next"),
   });
 
+  $(".merch-slider-wrap").each(function () {
+    const $wrap = $(this); // Контейнер слайдера
+    const $slider = $wrap.find(".merch-slider"); // Сам слайдер
+    const $counter = $wrap.find(".slider-counter"); // Счетчик
+  
+    // Инициализация слайдера
+    $slider.on("init reInit afterChange", function (event, slick, currentSlide) {
+      const current = (currentSlide ? currentSlide : 0) + 1;
+      $counter.text(`${current} / ${slick.slideCount}`);
+    });
+  
+    $slider.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+      prevArrow: $wrap.find(".slick-prev"),
+      nextArrow: $wrap.find(".slick-next"),
+    });
+  });
+  
+
   $(".objectives-slider").slick({
     slidesToShow: 4,
     slidesToScroll: 1,
