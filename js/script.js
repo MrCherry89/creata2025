@@ -37,6 +37,36 @@ $(document).ready(function () {
     nextArrow: $(".project-info-slider-wrap .slider-navigation .slick-next"),
   });
 
+
+document.querySelectorAll(".mtc-banner .img").forEach(image => {
+  // Создаём плавные анимированные свойства
+  let smoothX = gsap.quickTo(image, "x", { duration: 1, ease: "power2.out" });
+  let smoothY = gsap.quickTo(image, "y", { duration: 1, ease: "power2.out" });
+
+  image.addEventListener("mousemove", (e) => {
+      const { left, top, width, height } = image.getBoundingClientRect();
+      const centerX = left + width / 2;
+      const centerY = top + height / 2;
+      const deltaX = e.clientX - centerX;
+      const deltaY = e.clientY - centerY;
+      const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
+
+      const maxMove = 50; // Насколько далеко элемент может "убегать"
+      const moveX = (deltaX / distance) * maxMove;
+      const moveY = (deltaY / distance) * maxMove;
+
+      // Плавное движение к нужной точке
+      smoothX(moveX);
+      smoothY(moveY);
+  });
+
+  image.addEventListener("mouseleave", () => {
+      // Возвращаемся в центр плавно
+      smoothX(0);
+      smoothY(0);
+  });
+});
+
   $(".merch-slider-wrap").each(function () {
     const $wrap = $(this); // Контейнер слайдера
     const $slider = $wrap.find(".merch-slider"); // Сам слайдер

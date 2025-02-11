@@ -4524,7 +4524,7 @@ textarea.error {
 }
 @media (max-width: 1300px) {
   .stickermania-banner {
-    min-height: 50vw;
+    min-height: 70vw;
   }
 }
 @media (max-width: 767px) {
@@ -4546,13 +4546,15 @@ textarea.error {
 @media (max-width: 1024px) {
   .stickermania-banner .img6 {
     width: 120px;
-    left: 100px;
+    left: 45%;
     top: 50px;
   }
 }
 @media (max-width: 767px) {
   .stickermania-banner .img6 {
-    left: 30px;
+    right: 80px;
+    left: inherit;
+    top: 120px;
   }
 }
 .stickermania-banner .img7 {
@@ -4569,18 +4571,21 @@ textarea.error {
 @media (max-width: 1400px) {
   .stickermania-banner .img7 {
     left: 20%;
+    width: 220px;
   }
 }
 @media (max-width: 1024px) {
   .stickermania-banner .img7 {
     width: 180px;
-    left: 100px;
+    left: 20vw;
     bottom: 20px;
   }
 }
 @media (max-width: 767px) {
   .stickermania-banner .img7 {
     left: 0px;
+    bottom: 150px;
+    width: 140px;
   }
 }
 .stickermania-banner .img8 {
@@ -4606,9 +4611,9 @@ textarea.error {
 }
 @media (max-width: 767px) {
   .stickermania-banner .img8 {
-    width: 250px;
-    right: 0px;
-    bottom: 80px;
+    width: 180px;
+    right: 40px;
+    bottom: 140px;
     left: inherit;
   }
 }
@@ -4620,22 +4625,61 @@ textarea.error {
 }
 @media (max-width: 1400px) {
   .stickermania-banner .img9 {
-    top: 100px;
-    bottom: inherit;
+    bottom: 100px;
+    right: 50px;
   }
 }
 @media (max-width: 1024px) {
   .stickermania-banner .img9 {
     width: 200px;
-    top: 20px;
-    right: 20px;
   }
 }
 @media (max-width: 767px) {
   .stickermania-banner .img9 {
-    width: 180px;
-    top: 90px;
-    right: 10px;
+    width: 140px;
+    right: 30px;
+    bottom: 40px;
+  }
+}
+.stickermania-banner .img-stick1 {
+  position: absolute;
+  top: 100px;
+  left: 10vw;
+}
+@media (max-width: 767px) {
+  .stickermania-banner .img-stick1 {
+    left: 30px;
+  }
+}
+.stickermania-banner .img-stick2 {
+  position: absolute;
+  bottom: 100px;
+  left: 5vw;
+}
+@media (max-width: 767px) {
+  .stickermania-banner .img-stick2 {
+    width: 120px;
+    left: 20px;
+    bottom: 50px;
+  }
+}
+.stickermania-banner .img-stick3 {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+}
+@media (max-width: 1024px) {
+  .stickermania-banner .img-stick3 {
+    width: 300px;
+    top: 60px;
+    right: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .stickermania-banner .img-stick3 {
+    width: 200px;
+    top: 30px;
+    right: 20px;
   }
 }
 .stickermania-banner .wrapper {
@@ -4673,7 +4717,7 @@ textarea.error {
   .stickermania-banner .info .date {
     font-size: 16px;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
   }
 }
@@ -4681,28 +4725,30 @@ textarea.error {
   background: #EE7103;
   padding: 20px;
 }
+@media (max-width: 767px) {
+  .stickermania-banner .info h1 {
+    padding: 10px;
+  }
+}
 .stickermania-banner .info h1 span {
-  font-family: "HeliosExt";
-  font-size: 150px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 100%;
-  text-transform: uppercase;
-  color: #FFF;
-  text-align: center;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border: 3px solid #FFF;
   padding: 10px;
-}
-@media (max-width: 1600px) {
-  .stickermania-banner .info h1 span {
-    font-size: 9.5vw;
-  }
+  padding-top: 20px;
 }
 @media (max-width: 767px) {
   .stickermania-banner .info h1 span {
-    font-size: 8.5vw;
+    padding: 5px;
+    padding-top: 10px;
   }
+}
+.stickermania-banner .info h1 span img {
+  width: 100%;
 }
 
 .monopoly-banner {
@@ -4817,13 +4863,9 @@ textarea.error {
 .monopoly-banner .img.img5 {
   left: 50%;
   transform: translateX(-50%);
-  bottom: -220px;
+  top: 65%;
   z-index: 2;
-}
-@media (max-width: 1300px) {
-  .monopoly-banner .img.img5 {
-    width: 340px;
-  }
+  width: 330px;
 }
 @media (max-width: 1024px) {
   .monopoly-banner .img.img5 {
@@ -4832,8 +4874,8 @@ textarea.error {
 }
 @media (max-width: 767px) {
   .monopoly-banner .img.img5 {
-    width: 220px;
-    left: 55%;
+    width: 190px;
+    left: 48%;
   }
 }
 .monopoly-banner .img.img6 {
@@ -4981,6 +5023,7 @@ textarea.error {
   text-transform: uppercase;
   color: #FFF;
   text-align: center;
+  text-shadow: 5px 5px 4.6px rgba(0, 0, 0, 0.25);
   display: block;
   flex-grow: 1;
   border: 3px solid #FFF;
@@ -5309,6 +5352,9 @@ textarea.error {
 .project-information .list-item.green {
   border-color: #76BC21;
 }
+.project-information .list-item.purple {
+  border-color: #5B0097;
+}
 .project-information .list-item .tags {
   width: 60%;
   display: -webkit-box;
@@ -5341,6 +5387,10 @@ textarea.error {
 .project-information .list-item .tags .tag:hover {
   border-color: #b0b5f5;
   color: #b0b5f5;
+}
+.project-information .list-item .tags .tag.tag2:hover {
+  border-color: #5B0097;
+  color: #5B0097;
 }
 @media (max-width: 1200px) {
   .project-information .list-item .tags .tag {
@@ -5420,6 +5470,31 @@ textarea.error {
     margin-top: 20px;
   }
 }
+.project-information .video-info .style-img2 {
+  position: absolute;
+  top: -100px;
+  right: -20px;
+  z-index: -1;
+}
+@media (max-width: 1200px) {
+  .project-information .video-info .style-img2 {
+    width: 50vw;
+    top: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .project-information .video-info .style-img2 {
+    top: 50%;
+    width: 60vw;
+  }
+}
+@media (max-width: 767px) {
+  .project-information .video-info .style-img2 {
+    width: 80px;
+    top: inherit;
+    width: 65vw;
+  }
+}
 .project-information .video-info .circle {
   width: 370px;
   height: 370px;
@@ -5436,6 +5511,9 @@ textarea.error {
 }
 .project-information .video-info .circle.yellow {
   background: #FFE149;
+}
+.project-information .video-info .circle.orange {
+  background: #FFAF29;
 }
 .project-information .video-info .circle.red {
   background: #FF0401;
@@ -5513,6 +5591,17 @@ textarea.error {
   .project-information .goals {
     margin-bottom: 100px;
   }
+}
+.project-information .goals.pl100 {
+  padding-left: 100px;
+}
+@media (max-width: 1024px) {
+  .project-information .goals.pl100 {
+    padding-left: 0;
+  }
+}
+.project-information .goals.pl100 .text br {
+  display: none;
 }
 .project-information .goals h3 {
   color: #1C1C1C;
@@ -6638,11 +6727,25 @@ textarea.error {
 .results .results-info3 .img1 {
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 45%;
+  width: 280px;
   transform: translateX(-50%);
+}
+@media (max-width: 1400px) {
+  .results .results-info3 .img1 {
+    width: 230px;
+    left: 50%;
+  }
+}
+@media (max-width: 1200px) {
+  .results .results-info3 .img1 {
+    width: 180px;
+    left: 40%;
+  }
 }
 @media (max-width: 1024px) {
   .results .results-info3 .img1 {
+    left: 50%;
     width: 220px;
   }
 }
@@ -6785,6 +6888,9 @@ textarea.error {
   background: #FFBD0D;
   width: 50%;
   min-height: 210px;
+}
+.results .results-info3 .top-items .item2 span {
+  text-transform: uppercase;
 }
 @media (max-width: 767px) {
   .results .results-info3 .top-items .item2 {

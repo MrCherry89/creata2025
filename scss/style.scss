@@ -2711,7 +2711,7 @@
   z-index: 0;
   overflow: hidden;
   @media (max-width: 1300px) {
-    min-height: 50vw;
+    min-height: 70vw;
   }
   @media (max-width: 767px) {
    height: calc(100vh - 70px);
@@ -2726,11 +2726,13 @@
     }
     @media (max-width: 1024px) {
       width: 120px;
-      left: 100px;
+      left: 45%;
       top: 50px;
     }
     @media (max-width: 767px) {
-      left: 30px;
+      right: 80px;
+      left: inherit;
+      top: 120px;
      }
   }
   .img7 {
@@ -2743,14 +2745,17 @@
     }
     @media (max-width: 1400px) {
       left: 20%;
+      width: 220px;
     }
     @media (max-width: 1024px) {
       width: 180px;
-      left: 100px;
+      left: 20vw;
       bottom: 20px;
     }
     @media (max-width: 767px) {
-      left: 00px;
+      left: 0px;
+      bottom: 150px;
+      width: 140px;
      }
   }
   .img8 {
@@ -2768,9 +2773,9 @@
      width: 300px;
     }
     @media (max-width: 767px) {
-      width: 250px;
-      right: 0px;
-      bottom: 80px;
+      width: 180px;
+      right: 40px;
+      bottom: 140px;
       left: inherit;
      }
   }
@@ -2780,19 +2785,50 @@
     bottom: 230px;
     width: 230px;
     @media (max-width: 1400px) {
-      top: 100px;
-      bottom: inherit;
+     bottom: 100px;
+     right: 50px;
     }
     @media (max-width: 1024px) {
-      width: 200px;
-      top: 20px;
-      right: 20px;  
+      width: 200px; 
     }
     @media (max-width: 767px) {
-      width: 180px;
-      top: 90px;
-      right: 10px;
+      width: 140px;
+      right: 30px;
+      bottom: 40px;
      }
+  }
+  .img-stick1{
+    position: absolute;
+    top: 100px;
+    left: 10vw;
+    @media (max-width: 767px) {
+      left: 30px;
+    }
+  }
+  .img-stick2{
+    position: absolute;
+   bottom: 100px;
+   left: 5vw;
+   @media (max-width: 767px) {
+   width: 120px;
+   left: 20px;
+   bottom: 50px;
+  }
+  }
+  .img-stick3{
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    @media (max-width: 1024px) {
+      width: 300px;
+      top: 60px;
+      right: 30px;
+    }
+    @media (max-width: 767px) {
+      width: 200px;
+      top: 30px;
+      right: 20px;
+    }
   }
   .wrapper {
     margin: auto;
@@ -2820,32 +2856,29 @@
       @media (max-width: 767px) {
         font-size: 16px;
         margin-top: 10px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         text-align: center;
       }
     }
     h1 {
       background: #EE7103;
       padding: 20px;
+      @media (max-width: 767px) {
+        padding: 10px;
+      }
       span{
-        font-family: "HeliosExt";
-        font-size: 150px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 100%;
-        text-transform: uppercase;
-        color: #FFF;
-        text-align: center;
-        display: block;
-
+        @include flex;
+        @include align-center;
         border: 3px solid #FFF;
         padding: 10px;
-        @media (max-width: 1600px) {
-          font-size: 9.5vw;
-        }
+        padding-top: 20px;
         @media (max-width: 767px) {
-          font-size: 8.5vw;
-         }
+          padding: 5px;
+          padding-top: 10px;
+        }
+        img{
+          width: 100%;
+        }
       }
     }
   }
@@ -2930,17 +2963,15 @@
     &.img5{
       left: 50%;
       transform: translateX(-50%);
-      bottom: -220px;
+    top: 65%;
       z-index: 2;
-      @media (max-width: 1300px) {
-        width: 340px;
-       }
+      width: 330px;
        @media (max-width: 1024px) {
         width: 280px;
       }
       @media (max-width: 767px) {
-        width: 220px;
-        left: 55%;
+        width: 190px;
+        left: 48%;
       }
     }
     &.img6{
@@ -3051,6 +3082,7 @@
         text-transform: uppercase;
         color: #FFF;
         text-align: center;
+        text-shadow: 5px 5px 4.6px rgba(0, 0, 0, 0.25);
         display: block;
         flex-grow: 1;
         border: 3px solid #FFF;
@@ -3307,6 +3339,9 @@
     &.green{
       border-color: #76BC21;
     }
+    &.purple{
+      border-color: #5B0097;
+    }
     .tags {
       width: 60%;
       @include flex;
@@ -3331,6 +3366,12 @@
         &:hover{
           border-color: #b0b5f5;
           color: #b0b5f5;
+        }
+        &.tag2{
+          &:hover{
+            border-color: #5B0097;
+            color: #5B0097;
+          }
         }
         @media (max-width: 1200px) {
           font-size: 18px;
@@ -3390,6 +3431,25 @@
       flex-direction: column-reverse;
       margin-top: 20px;
     }
+    .style-img2{
+      position: absolute;
+      top: -100px;
+      right: -20px;
+      z-index: -1;
+      @media (max-width: 1200px) {
+        width: 50vw;
+        top: 0;
+      }
+      @media (max-width: 1024px) {
+       top: 50%;
+       width: 60vw;
+      }
+      @media (max-width: 767px) {
+        width: 80px;
+        top: inherit;
+        width: 65vw;
+      }
+    }
     .circle {
       width: 370px;
       height: 370px;
@@ -3403,6 +3463,9 @@
       margin-right: 130px;
       &.yellow{
         background: #FFE149;
+      }
+      &.orange{
+        background: #FFAF29;
       }
       &.red{
         background: #FF0401;
@@ -3465,6 +3528,17 @@
     margin: 50px 0 150px;
     @media (max-width: 767px) {
       margin-bottom: 100px;
+     }
+     &.pl100{
+      padding-left: 100px;
+      @media (max-width: 1024px) {
+        padding-left: 0;
+       }
+      .text{
+        br{
+          display: none;
+        }
+      }
      }
     h3{
       color: #1C1C1C;
@@ -4354,9 +4428,19 @@
     .img1{
       position: absolute;
       bottom: 0;
-      left: 50%;
+      left: 45%;
+      width: 280px;
       transform: translateX(-50%);
-      @media (max-width: 1024px) {
+      @media (max-width: 1400px) {
+        width: 230px;
+        left: 50%;
+       }
+      @media (max-width: 1200px) {
+        width: 180px;
+        left: 40%;
+       }
+       @media (max-width: 1024px) {
+        left: 50%;
         width: 220px;
        }
        @media (max-width: 767px) {
@@ -4465,6 +4549,9 @@ display: block;
         background: #FFBD0D;
         width: 50%;
         min-height: 210px;
+        span{
+          text-transform: uppercase;
+        }
         @media (max-width: 767px) {
           width: 100%;
           min-height: inherit;
