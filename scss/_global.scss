@@ -556,6 +556,21 @@ a {
       }
     }
   }
+  &.blue-theme2 {
+    svg {
+      fill: #1283DF;
+    }
+    .send {
+      &:hover {
+        background: #1283DF;
+      }
+    }
+    .touch-title {
+      .pink {
+        color: #1283DF;
+      }
+    }
+  }
   &.red-theme {
     svg {
       fill: #e4001e;

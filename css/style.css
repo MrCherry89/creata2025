@@ -757,6 +757,15 @@ a:focus {
 .in-touch.blue-theme .touch-title .pink {
   color: #00b3f2;
 }
+.in-touch.blue-theme2 svg {
+  fill: #1283DF;
+}
+.in-touch.blue-theme2 .send:hover {
+  background: #1283DF;
+}
+.in-touch.blue-theme2 .touch-title .pink {
+  color: #1283DF;
+}
 .in-touch.red-theme svg {
   fill: #e4001e;
 }
@@ -4179,6 +4188,8 @@ textarea.error {
     display: -ms-flexbox;
     display: flex;
     margin-top: 40px;
+    height: 60px;
+    font-size: 18px;
     justify-content: center;
   }
 }
@@ -4247,15 +4258,21 @@ textarea.error {
 .other-projects.bg-blue:after {
   content: "";
   position: absolute;
-  top: -60vw;
+  top: -50%;
+  transform: translateY(-50%);
   left: 0;
   z-index: -1;
-  background: url(../img/blue-gradient.svg);
+  background: url(../img/blue-style-bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  height: 120vw;
+  height: 200vw;
+}
+@media (max-width: 767px) {
+  .other-projects.bg-blue:after {
+    top: -30%;
+  }
 }
 .other-projects.bg-yellow {
   position: relative;
@@ -4280,6 +4297,11 @@ textarea.error {
 }
 .other-projects.bg-yellow.opacity:after {
   opacity: 0.5;
+}
+@media (max-width: 767px) {
+  .other-projects.bg-yellow.mob:after {
+    content: none;
+  }
 }
 .other-projects.bg-lBlue {
   position: relative;
@@ -5106,7 +5128,9 @@ textarea.error {
 }
 @media (max-width: 767px) {
   .prisopolia-banner {
-    min-height: calc(100vh - 70px);
+    min-height: 100vh;
+    margin-top: -70px;
+    padding-top: 60px;
   }
 }
 .prisopolia-banner .wrapper {
@@ -5511,6 +5535,10 @@ textarea.error {
 .project-information .list-item .tags .tag.tag2:hover {
   border-color: #5B0097;
   color: #5B0097;
+}
+.project-information .list-item .tags .tag.tag3:hover {
+  border-color: #76BC21;
+  color: #76BC21;
 }
 @media (max-width: 1200px) {
   .project-information .list-item .tags .tag {
@@ -6448,16 +6476,18 @@ textarea.error {
 }
 @media (max-width: 767px) {
   .results .results-info .info .list .item span {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 .results .results-info .info .list .item span.big {
   width: 45%;
   padding-right: 5px;
+  text-transform: uppercase;
 }
 @media (max-width: 767px) {
   .results .results-info .info .list .item span.big {
     width: 40%;
+    font-size: 14px;
   }
 }
 .results .results-info .info .list .item span.small {
@@ -6728,6 +6758,7 @@ textarea.error {
     width: 100%;
     min-height: auto;
     padding: 30px;
+    border-right: 6px solid #FFF;
   }
 }
 .results .results-info2 .top-items .item3 {
@@ -7179,6 +7210,43 @@ textarea.error {
     z-index: -1;
   }
 }
+.results.grad.grad2 {
+  position: relative;
+}
+@media (max-width: 767px) {
+  .results.grad.grad2:after {
+    content: "";
+    background: url(../img/gradient.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    opacity: 0.7;
+    width: 100%;
+    height: calc(100% + 300px);
+    z-index: -1;
+  }
+}
+.results.grad.grad2 .video-info-img {
+  position: absolute;
+  bottom: 0;
+  right: -20px;
+  z-index: -1;
+}
+@media (max-width: 1400px) {
+  .results.grad.grad2 .video-info-img {
+    bottom: -70px;
+    width: 40vw;
+  }
+}
+@media (max-width: 1024px) {
+  .results.grad.grad2 .video-info-img {
+    bottom: -70px;
+    width: 70vw;
+  }
+}
 
 @keyframes rotate {
   from {
@@ -7215,7 +7283,7 @@ textarea.error {
 }
 @media (max-width: 1024px) {
   .video-wrap {
-    margin-top: 100px;
+    margin-top: 80px;
   }
 }
 .video-wrap .video {
@@ -7828,7 +7896,7 @@ textarea.error {
 .essence:after {
   content: "";
   position: absolute;
-  top: -200px;
+  top: -30px;
   left: 0;
   z-index: -1;
   background: url(../img/essence-gradient.png);
@@ -7836,7 +7904,7 @@ textarea.error {
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  height: 1050px;
+  height: 60vw;
 }
 @media (max-width: 767px) {
   .essence {
@@ -7945,6 +8013,10 @@ textarea.error {
   }
 }
 .essence .essence-top .img-wrap .img1 {
+  max-width: 100%;
+  max-height: 100%;
+}
+.essence .essence-top .img-wrap .img3 {
   max-width: 100%;
   max-height: 100%;
 }
@@ -8143,9 +8215,10 @@ textarea.error {
 @media (max-width: 767px) {
   .essence.essence-cr .essence-top .img-wrap .circle {
     bottom: 180px;
-    width: 130px;
-    height: 130px;
-    min-width: 130px;
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    padding: 5px;
   }
 }
 @media (max-width: 1300px) {
@@ -8509,7 +8582,7 @@ textarea.error {
 }
 @media (max-width: 767px) {
   .essence-info .item .text-wrap h2 {
-    font-size: 30px;
+    font-size: 28px;
     margin-bottom: 30px;
   }
 }
@@ -8742,6 +8815,9 @@ textarea.error {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
   .merch-banner .banner-image {
@@ -8750,6 +8826,9 @@ textarea.error {
 }
 .merch-banner .banner-image .desk {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 @media (max-width: 767px) {
   .merch-banner .banner-image .desk {
@@ -8779,10 +8858,10 @@ textarea.error {
   align-items: center;
   color: #1C1C1C;
   font-family: "HeliosExt";
-  font-size: 100px;
+  font-size: 90px;
   font-style: normal;
   font-weight: 700;
-  margin-top: 40px;
+  margin-top: 10px;
   line-height: 100%;
 }
 @media (max-width: 1300px) {
