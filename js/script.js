@@ -87,6 +87,8 @@ document.querySelectorAll(".mtc-banner .img").forEach(image => {
       nextArrow: $wrap.find(".slick-next"),
     });
   });
+
+
   
 
   $(".objectives-slider").slick({
