@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 
   $(".phone-number-input").inputmask({
-    mask: "+7 (999)-999-999-9",
+    mask: "+7 (999) 999-99-99",
   });
   $(".touch-form").validate({
     errorPlacement: function (error, element) {},
@@ -38,7 +38,7 @@ $(document).ready(function () {
   });
 
 
-document.querySelectorAll(".mtc-banner .img").forEach(image => {
+document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopoly-banner .img").forEach(image => {
   // Создаём плавные анимированные свойства
   let smoothX = gsap.quickTo(image, "x", { duration: 1, ease: "power2.out" });
   let smoothY = gsap.quickTo(image, "y", { duration: 1, ease: "power2.out" });
@@ -67,6 +67,8 @@ document.querySelectorAll(".mtc-banner .img").forEach(image => {
   });
 });
 
+
+
   $(".merch-slider-wrap").each(function () {
     const $wrap = $(this); // Контейнер слайдера
     const $slider = $wrap.find(".merch-slider"); // Сам слайдер
@@ -89,7 +91,9 @@ document.querySelectorAll(".mtc-banner .img").forEach(image => {
   });
 
 
-  
+  $(".header .border-btn").smoothScroll({
+    speed: 1200,
+  });
 
   $(".objectives-slider").slick({
     slidesToShow: 4,
@@ -163,27 +167,39 @@ document.querySelectorAll(".mtc-banner .img").forEach(image => {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".trused-img1", {
-    y: -100, // Сдвиг по оси Y (вниз на 100px)
-    scrollTrigger: {
-      trigger: ".trused-img1", // Триггер — изображение
-      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
-      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
-      scrub: true, // Анимация синхронизируется с прокруткой
-    },
-  });
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.to(".trused-img2", {
-    y: -10, // Сдвиг по оси Y (вниз на 100px)
-    scrollTrigger: {
-      trigger: ".trused-img2", // Триггер — изображение
-      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
-      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
-      scrub: true, // Анимация синхронизируется с прокруткой
-    },
-  });
+  function initAnimations() {
+    // Удаляем все ScrollTrigger
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  
+    // Если ширина больше 1024px — запускаем анимацию
+    if (window.innerWidth > 1024) {
+      gsap.to(".trused-img1", {
+        y: -200,
+        scrollTrigger: {
+          trigger: ".trused-img1",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+  
+      gsap.to(".trused-img2", {
+        y: 150,
+        scrollTrigger: {
+          trigger: ".trused-img2",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+  }
+  
+  // Инициализация при загрузке
+  initAnimations();
+  
+  // Повторная проверка при изменении размеров окна
+  window.addEventListener("resize", initAnimations);
 
   gsap.to(".sticker-img1", {
     y: -50,
