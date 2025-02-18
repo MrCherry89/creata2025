@@ -1269,27 +1269,27 @@
     }
     h2 {
       margin-bottom: 40px;
-      max-width: 1176px;
+      max-width: 1000px;
       width: 100%;
       color: #1c1c1c;
-      font-size: 75px;
+      font-size: 60px;
       font-style: normal;
       font-weight: 700;
       line-height: 110%;
       text-transform: uppercase;
       @media (max-width: 1420px) {
-        font-size: 60px;
+        font-size: 50px;
         max-width: 1000px;
       }
       @media (max-width: 1200px) {
-        font-size: 50px;
+        font-size: 40px;
       }
       @media (max-width: 1024px) {
-        font-size: 40px;
+        font-size: 34px;
         margin-bottom: 20px;
       }
       @media (max-width: 767px) {
-        font-size: 22px;
+        font-size: 21px;
       }
     }
     p {
@@ -1762,7 +1762,7 @@
     .buttons {
       @include flex;
       margin-top: 20px;
-      a {
+      a, .btn {
         margin-right: 15px;
         border-radius: 40px;
         border: 2px solid #1c1c1c;
@@ -1777,14 +1777,14 @@
           margin-right: 10px;
           margin-left: 0;
         }
-        &:hover {
-          .icon {
-            width: 104%;
-          }
-          .text {
-            color: white;
-          }
-        }
+        // &:hover {
+        //   .icon {
+        //     width: 104%;
+        //   }
+        //   .text {
+        //     color: white;
+        //   }
+        // }
         .icon {
           width: 60px;
           height: 40px;
@@ -1842,7 +1842,7 @@
     }
     @media (max-width: 767px) {
       font-size: 44px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
     .circle {
       margin-left: 30px;
@@ -1880,15 +1880,20 @@
     @include flex;
     @include justify-between;
     @include align-center;
+    min-height: 64px;
     @media (max-width: 767px) {
       @include dir-col;
       align-items: flex-start;
+      min-height: 94px;
     }
     .tags {
       @include flex;
+      margin-left: auto;
       @media (max-width: 767px) {
         @include flex-wrap;
-        margin-top: 40px;
+        margin-top: auto;
+        margin-left: 0;
+        margin-right: auto;
       }
       button {
         margin-left: 50px;
@@ -6170,6 +6175,10 @@ display: block;
 }
 
 .merch-info-block{
+  margin-top: 50px;
+  .wrapper{
+    padding: 0;
+  }
   .merch-info{
     border-top: 3px solid #1C1C1C;
     padding-bottom: 30px;

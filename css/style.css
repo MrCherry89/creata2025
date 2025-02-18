@@ -2659,10 +2659,10 @@ textarea.error {
 }
 .about .about-info h2 {
   margin-bottom: 40px;
-  max-width: 1176px;
+  max-width: 1000px;
   width: 100%;
   color: #1c1c1c;
-  font-size: 75px;
+  font-size: 60px;
   font-style: normal;
   font-weight: 700;
   line-height: 110%;
@@ -2670,24 +2670,24 @@ textarea.error {
 }
 @media (max-width: 1420px) {
   .about .about-info h2 {
-    font-size: 60px;
+    font-size: 50px;
     max-width: 1000px;
   }
 }
 @media (max-width: 1200px) {
   .about .about-info h2 {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
 @media (max-width: 1024px) {
   .about .about-info h2 {
-    font-size: 40px;
+    font-size: 34px;
     margin-bottom: 20px;
   }
 }
 @media (max-width: 767px) {
   .about .about-info h2 {
-    font-size: 22px;
+    font-size: 21px;
   }
 }
 .about .about-info p {
@@ -3296,7 +3296,7 @@ textarea.error {
   display: flex;
   margin-top: 20px;
 }
-.cases-items .main-info .buttons a {
+.cases-items .main-info .buttons a, .cases-items .main-info .buttons .btn {
   margin-right: 15px;
   border-radius: 40px;
   border: 2px solid #1c1c1c;
@@ -3313,18 +3313,12 @@ textarea.error {
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  .cases-items .main-info .buttons a {
+  .cases-items .main-info .buttons a, .cases-items .main-info .buttons .btn {
     margin-right: 10px;
     margin-left: 0;
   }
 }
-.cases-items .main-info .buttons a:hover .icon {
-  width: 104%;
-}
-.cases-items .main-info .buttons a:hover .text {
-  color: white;
-}
-.cases-items .main-info .buttons a .icon {
+.cases-items .main-info .buttons a .icon, .cases-items .main-info .buttons .btn .icon {
   width: 60px;
   height: 40px;
   border-radius: 40px;
@@ -3337,11 +3331,11 @@ textarea.error {
   top: -1px;
   left: -2px;
 }
-.cases-items .main-info .buttons a .icon img {
+.cases-items .main-info .buttons a .icon img, .cases-items .main-info .buttons .btn .icon img {
   margin: auto 0;
   margin-left: 10px;
 }
-.cases-items .main-info .buttons a .text {
+.cases-items .main-info .buttons a .text, .cases-items .main-info .buttons .btn .text {
   padding: 0 20px;
   color: #1c1c1c;
   text-align: center;
@@ -3392,7 +3386,7 @@ textarea.error {
 @media (max-width: 767px) {
   .cases h2 {
     font-size: 44px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
 }
 .cases h2 .circle {
@@ -3446,6 +3440,7 @@ textarea.error {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  min-height: 64px;
 }
 @media (max-width: 767px) {
   .cases .top {
@@ -3454,19 +3449,23 @@ textarea.error {
     -ms-flex-direction: column;
     flex-direction: column;
     align-items: flex-start;
+    min-height: 94px;
   }
 }
 .cases .top .tags {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: auto;
 }
 @media (max-width: 767px) {
   .cases .top .tags {
     -ms-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: auto;
+    margin-left: 0;
+    margin-right: auto;
   }
 }
 .cases .top .tags button {
@@ -8926,6 +8925,12 @@ textarea.error {
   }
 }
 
+.merch-info-block {
+  margin-top: 50px;
+}
+.merch-info-block .wrapper {
+  padding: 0;
+}
 .merch-info-block .merch-info {
   border-top: 3px solid #1C1C1C;
   padding-bottom: 30px;

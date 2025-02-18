@@ -327,4 +327,14 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
     $(this).addClass("active");
     $(`.tab-content[data-tab="${target}"]`).addClass("active").show();
   });
+
+
+  $(".tags button").on("click", function(){
+    $(this).closest(".wrapper").find(".tabs").show();
+    $(this).closest(".wrapper").find(".top .tab-buttons").show();
+  })
+  $(".tags .content").on("click", function(){
+    $(this).closest(".wrapper").find(".tabs").hide();
+    $(this).closest(".wrapper").find(".top .tab-buttons").hide();
+  })
 });
