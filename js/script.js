@@ -337,4 +337,21 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
     $(this).closest(".wrapper").find(".tabs").hide();
     $(this).closest(".wrapper").find(".top .tab-buttons").hide();
   })
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray(".essence-info .img-wrap img").forEach((img) => {
+    gsap.to(img, {
+      scrollTrigger: {
+        trigger: img,
+        start: "top bottom", // Начало анимации, когда элемент появляется внизу экрана
+        end: "bottom top",   // Конец анимации, когда элемент уходит вверх
+        scrub: true,         // Плавная анимация при скролле
+      },
+      rotateY: -60,          // Поворот по горизонтали
+      rotateX: -5,         // Поворот по вертикали
+      translateZ: 100,       // Двигаем изображение вперёд
+      ease: "none"
+    });
+  });
 });
