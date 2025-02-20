@@ -2133,6 +2133,8 @@ textarea.error {
 .our-expertise .info.info2 .img-wrap {
   max-width: 680px;
   padding: 25px;
+  border: none;
+  border-radius: 20px;
 }
 @media (max-width: 1200px) {
   .our-expertise .info.info2 .img-wrap {
@@ -2143,6 +2145,11 @@ textarea.error {
   .our-expertise .info.info2 .img-wrap {
     max-width: 100%;
     padding: 3vw;
+  }
+}
+@media (max-width: 500px) {
+  .our-expertise .info.info2 .img-wrap .img img {
+    display: block;
   }
 }
 .our-expertise .info.info2 .texts {
