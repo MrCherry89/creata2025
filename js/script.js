@@ -201,51 +201,58 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
   // Повторная проверка при изменении размеров окна
   window.addEventListener("resize", initAnimations);
 
-  gsap.to(".sticker-img1", {
-    y: -50,
-    scrollTrigger: {
-      trigger: ".sticker-img1", // Триггер — изображение
-      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
-      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
-      scrub: true, // Анимация синхронизируется с прокруткой
-    },
-  });
-  gsap.to(".sticker-img2", {
-    x: 50, // Сдвиг по оси Y (вниз на 100px)
-    scrollTrigger: {
-      trigger: ".sticker-img2", // Триггер — изображение
-      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
-      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
-      scrub: true, // Анимация синхронизируется с прокруткой
-    },
-  });
-  gsap.to(".sticker-img3", {
-    x: -50, // Сдвиг по оси Y (вниз на 100px)
-    scrollTrigger: {
-      trigger: ".sticker-img3", // Триггер — изображение
-      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
-      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
-      scrub: true, // Анимация синхронизируется с прокруткой
-    },
-  });
-  gsap.to(".main-info .img2", {
-    x: 50, // Сдвиг по оси Y (вниз на 100px)
-    scrollTrigger: {
-      trigger: ".main-info .img2", // Триггер — изображение
-      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
-      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
-      scrub: true, // Анимация синхронизируется с прокруткой
-    },
-  });
-  gsap.to(".main-info .img3", {
-    x: -50, // Сдвиг по оси Y (вниз на 100px)
-    scrollTrigger: {
-      trigger: ".main-info .img3", // Триггер — изображение
-      start: "top bottom", // Начало анимации, когда изображение попадает в область просмотра
-      end: "bottom top", // Конец анимации, когда изображение выходит из области просмотра
-      scrub: true, // Анимация синхронизируется с прокруткой
-    },
-  });
+  if (window.innerWidth > 767) {
+    gsap.to(".sticker-img1", {
+      y: -100,
+      scrollTrigger: {
+        trigger: ".sticker-img1",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  
+    gsap.to(".sticker-img2", {
+      x: 100,
+      scrollTrigger: {
+        trigger: ".sticker-img2",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  
+    gsap.to(".sticker-img3", {
+      x: -100,
+      scrollTrigger: {
+        trigger: ".sticker-img3",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  
+    gsap.to(".main-info .img2", {
+      x: 50,
+      scrollTrigger: {
+        trigger: ".main-info .img2",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  
+    gsap.to(".main-info .img3", {
+      x: -50,
+      scrollTrigger: {
+        trigger: ".main-info .img3",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  }
+  
 
   $(".digital-slider").slick({
     slidesToShow: 3,
@@ -329,13 +336,17 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
   });
 
 
+
+
   $(".tags button").on("click", function(){
     $(this).closest(".wrapper").find(".tabs").show();
     $(this).closest(".wrapper").find(".top .tab-buttons").show();
+    $(".merch-info-block").removeClass("show");
   })
   $(".tags .content").on("click", function(){
     $(this).closest(".wrapper").find(".tabs").hide();
     $(this).closest(".wrapper").find(".top .tab-buttons").hide();
+    $(".merch-info-block").addClass("show");
   })
 
   gsap.registerPlugin(ScrollTrigger);

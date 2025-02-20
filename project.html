@@ -93,28 +93,7 @@
 
     <div class="project-info-slider-wrap">
       <div class="wrapper">
-        <div class="slider-navigation">
-          <button type="button" class="slick-prev">
-            <img src="img/slider-arrow.svg" alt="" />
-          </button>
-          <button type="button" class="slick-next">
-            <img src="img/slider-arrow.svg" alt="" />
-          </button>
-        </div>
-        <div class="project-info-slider">
-          <div
-            class="item"
-            style="background-image: url(img/project-info-slider-img.jpg)"
-          ></div>
-          <div
-            class="item"
-            style="background-image: url(img/project-info-slider-img.jpg)"
-          ></div>
-          <div
-            class="item"
-            style="background-image: url(img/project-info-slider-img.jpg)"
-          ></div>
-        </div>
+        <video src="leo.mp4" controls playsinline muted id="myVideo"></video>
       </div>
     </div>
 
@@ -559,6 +538,8 @@
       </div>
     </div>
 
+
+
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/jquery.inputmask.bundle.min.js"></script>
@@ -569,5 +550,34 @@
     <script src="js/ScrollTrigger.min.js"></script>
     <script src="js/jquery.smooth-scroll.min.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+      const video = document.getElementById("myVideo");
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Сразу запускаем видео без звука
+      video.play().catch((e) => console.warn("Автовоспроизведение не сработало", e));
+
+      ScrollTrigger.create({
+        trigger: video,
+        start: "top 80%",
+        end: "bottom 20%",
+        onEnter: () => {
+          // Проверяем, взаимодействовал ли пользователь со страницей
+          if (navigator.userActivation?.hasBeenActive) {
+            video.muted = false; // Включаем звук
+          }
+          video.play();
+        },
+        onLeave: () => video.pause(),
+        onEnterBack: () => {
+          if (navigator.userActivation?.hasBeenActive) {
+            video.muted = false; // Включаем звук при возврате
+          }
+          video.play();
+        },
+        onLeaveBack: () => video.pause(),
+      });
+  </script>
   </body>
 </html>
