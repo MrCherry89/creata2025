@@ -338,7 +338,6 @@ a:focus {
 
 .in-touch {
   padding: 150px 0 50px;
-  overflow: hidden;
   position: relative;
   z-index: 0;
 }
@@ -909,6 +908,22 @@ textarea.error {
   -ms-transform: translateY(1px) rotate(-45deg);
   -o-transform: translateY(1px) rotate(-45deg);
   transform: translateY(1px) rotate(-45deg);
+}
+
+.section__full {
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .section__full {
+    min-height: calc(100vh - 86px);
+  }
+}
+@media (max-width: 767px) {
+  .section__full {
+    min-height: calc(100vh - 70px);
+  }
 }
 
 @font-face {
@@ -2976,7 +2991,7 @@ textarea.error {
   padding: 15px 0;
   background: white;
   position: relative;
-  z-index: 3;
+  z-index: 111;
 }
 .header.op {
   background: rgba(255, 255, 255, 0.8);

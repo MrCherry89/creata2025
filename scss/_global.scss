@@ -253,7 +253,6 @@ a {
 
 .in-touch {
   padding: 150px 0 50px;
-  overflow: hidden;
   position: relative;
   z-index: 0;
   .img1 {
@@ -736,3 +735,14 @@ textarea.error {
 }
 
 
+.section__full {
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  overflow: hidden;
+  @media (max-width: 1024px) {
+    min-height: calc(100vh - 86px);
+  }
+  @media (max-width: 767px) {
+    min-height: calc(100vh - 70px);
+  }
+}
