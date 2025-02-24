@@ -472,6 +472,27 @@ a {
         }
         &:hover {
           color: $pink;
+          &.blue{
+            color: #00b3f2;
+          }
+          &.blue2{
+            color: #1283DF;
+          }
+          &.green{
+            color: #004F32;
+          }
+          &.red{
+            color: #e4001e;
+          }
+          &.orange{
+            color: #F04D2A;
+          }
+          &.orange2{
+            color: #EE7103;
+          }
+          &.purple{
+            color: #5B0097;
+          }
         }
       }
     }
@@ -713,3 +734,5 @@ textarea.error {
   -o-transform: translateY(1px) rotate(-45deg);
   transform: translateY(1px) rotate(-45deg);
 }
+
+

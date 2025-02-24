@@ -365,4 +365,30 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
       ease: "none"
     });
   });
+
+  if (window.innerWidth > 767) {
+    gsap.to(".left-img", {
+        y: 150, 
+        ease: "power1.out",
+        scrollTrigger: {
+            trigger: ".information-block",
+            start: "top bottom", 
+            end: "bottom top",
+            scrub: true 
+        }
+    });
+
+    gsap.to(".right-img", {
+        y: -150, 
+        ease: "power1.out",
+        scrollTrigger: {
+            trigger: ".information-block",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+        }
+    });
+}
+
+
 });
