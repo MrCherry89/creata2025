@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-
+  gsap.registerPlugin(ScrollTrigger);
   $(".phone-number-input").inputmask({
     mask: "+7 (999) 999-99-99",
   });
@@ -36,38 +36,6 @@ $(document).ready(function () {
     prevArrow: $(".project-info-slider-wrap .slider-navigation .slick-prev"),
     nextArrow: $(".project-info-slider-wrap .slider-navigation .slick-next"),
   });
-
-
-document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopoly-banner .img").forEach(image => {
-  // Создаём плавные анимированные свойства
-  let smoothX = gsap.quickTo(image, "x", { duration: 1, ease: "power2.out" });
-  let smoothY = gsap.quickTo(image, "y", { duration: 1, ease: "power2.out" });
-
-  image.addEventListener("mousemove", (e) => {
-      const { left, top, width, height } = image.getBoundingClientRect();
-      const centerX = left + width / 2;
-      const centerY = top + height / 2;
-      const deltaX = e.clientX - centerX;
-      const deltaY = e.clientY - centerY;
-      const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
-
-      const maxMove = 50; // Насколько далеко элемент может "убегать"
-      const moveX = (deltaX / distance) * maxMove;
-      const moveY = (deltaY / distance) * maxMove;
-
-      // Плавное движение к нужной точке
-      smoothX(moveX);
-      smoothY(moveY);
-  });
-
-  image.addEventListener("mouseleave", () => {
-      // Возвращаемся в центр плавно
-      smoothX(0);
-      smoothY(0);
-  });
-});
-
-
 
   $(".merch-slider-wrap").each(function () {
     const $wrap = $(this); // Контейнер слайдера
@@ -113,7 +81,6 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
     ],
   });
 
-  
 
   $(".other-projects-slider").slick({
     slidesToShow: 2,
@@ -148,60 +115,100 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
     $(this).closest(".video").find(".image").addClass("hide");
 });
 
-  gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".style", {
-    rotation: 360, // Один полный оборот
-    scrollTrigger: {
-      trigger: ".style", // Триггер — элемент с классом .style
-      start: "top bottom", // Начало анимации
-      end: "bottom top", // Конец анимации
-      scrub: true, // Анимация синхронизируется с прокруткой
-      onUpdate: (self) => {
-        const direction = self.direction; // Определяем направление (1 — вниз, -1 — вверх)
-        const rotate = direction === 1 ? "+=5" : "-=5"; // Меняем вращение
-        gsap.to(".style", { rotation: rotate, duration: 0.5 });
+window.onload = function() {
+  initAnimations();
+};
+
+function initAnimations() {
+  // Удаляем все ScrollTrigger
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
+  // Проверка наличия элемента .style
+  const styleElement = document.querySelector(".style");
+  if (styleElement) {
+    gsap.to(styleElement, {
+      rotation: 360, 
+      scrollTrigger: {
+        trigger: styleElement,
+        start: "top bottom", 
+        end: "bottom top", 
+        scrub: true, 
+        onUpdate: (self) => {
+          const direction = self.direction;
+          const rotate = direction === 1 ? "+=5" : "-=5";
+          gsap.to(styleElement, { rotation: rotate, duration: 0.5 });
+        },
       },
-    },
+    });
+  }
+
+  // Плавная анимация изображений
+  document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopoly-banner .img").forEach(image => {
+    let smoothX = gsap.quickTo(image, "x", { duration: 1, ease: "power2.out" });
+    let smoothY = gsap.quickTo(image, "y", { duration: 1, ease: "power2.out" });
+
+    image.addEventListener("mousemove", (e) => {
+        const { left, top, width, height } = image.getBoundingClientRect();
+        const centerX = left + width / 2;
+        const centerY = top + height / 2;
+        const deltaX = e.clientX - centerX;
+        const deltaY = e.clientY - centerY;
+        const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
+        const maxMove = 50; 
+        const moveX = (deltaX / distance) * maxMove;
+        const moveY = (deltaY / distance) * maxMove;
+        smoothX(moveX);
+        smoothY(moveY);
+    });
+
+    image.addEventListener("mouseleave", () => {
+        smoothX(0);
+        smoothY(0);
+    });
   });
 
-  gsap.registerPlugin(ScrollTrigger);
+  // Анимация изображений с классом .essence-info .img-wrap img
+  gsap.utils.toArray(".essence-info .img-wrap img").forEach((img) => {
+    gsap.to(img, {
+      scrollTrigger: {
+        trigger: img,
+        start: "top bottom",
+        end: "bottom top", 
+        scrub: true,
+      },
+      rotateY: -60,
+      rotateX: -5,
+      translateZ: 100,
+      ease: "none"
+    });
+  });
 
-  function initAnimations() {
-    // Удаляем все ScrollTrigger
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  
-    // Если ширина больше 1024px — запускаем анимацию
-    if (window.innerWidth > 1024) {
-      gsap.to(".trused-img1", {
-        y: -200,
-        scrollTrigger: {
-          trigger: ".trused-img1",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-  
-      gsap.to(".trused-img2", {
-        y: 150,
-        scrollTrigger: {
-          trigger: ".trused-img2",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }
-  }
-  
-  // Инициализация при загрузке
-  initAnimations();
-  
-  // Повторная проверка при изменении размеров окна
-  window.addEventListener("resize", initAnimations);
-
+  // Проверка размеров экрана для анимаций
   if (window.innerWidth > 767) {
+    gsap.to(".left-img", {
+      y: 150, 
+      ease: "power1.out",
+      scrollTrigger: {
+          trigger: ".information-block",
+          start: "top bottom", 
+          end: "bottom top",
+          scrub: true 
+      }
+    });
+
+    gsap.to(".right-img", {
+      y: -150, 
+      ease: "power1.out",
+      scrollTrigger: {
+          trigger: ".information-block",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+      }
+    });
+
+    // Анимации для стикеров
     gsap.to(".sticker-img1", {
       y: -100,
       scrollTrigger: {
@@ -211,7 +218,7 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
         scrub: true,
       },
     });
-  
+
     gsap.to(".sticker-img2", {
       x: 100,
       scrollTrigger: {
@@ -221,7 +228,7 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
         scrub: true,
       },
     });
-  
+
     gsap.to(".sticker-img3", {
       x: -100,
       scrollTrigger: {
@@ -231,7 +238,7 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
         scrub: true,
       },
     });
-  
+
     gsap.to(".main-info .img2", {
       x: 50,
       scrollTrigger: {
@@ -241,7 +248,7 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
         scrub: true,
       },
     });
-  
+
     gsap.to(".main-info .img3", {
       x: -50,
       scrollTrigger: {
@@ -252,6 +259,32 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
       },
     });
   }
+
+  if (window.innerWidth > 1024) {
+    gsap.to(".trused-img1", {
+      y: -200,
+      scrollTrigger: {
+        trigger: ".trused-img1",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    gsap.to(".trused-img2", {
+      y: 150,
+      scrollTrigger: {
+        trigger: ".trused-img2",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  }
+}
+
+window.addEventListener("resize", initAnimations);
+
   
 
   $(".digital-slider").slick({
@@ -335,9 +368,6 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
     $(`.tab-content[data-tab="${target}"]`).addClass("active").show();
   });
 
-
-
-
   $(".tags button").on("click", function(){
     $(this).closest(".wrapper").find(".tabs").show();
     $(this).closest(".wrapper").find(".top .tab-buttons").show();
@@ -349,46 +379,7 @@ document.querySelectorAll(".mtc-banner .img, .stickermania-banner .img, .monopol
     $(".merch-info-block").addClass("show");
   })
 
-  gsap.registerPlugin(ScrollTrigger);
 
-  gsap.utils.toArray(".essence-info .img-wrap img").forEach((img) => {
-    gsap.to(img, {
-      scrollTrigger: {
-        trigger: img,
-        start: "top bottom", // Начало анимации, когда элемент появляется внизу экрана
-        end: "bottom top",   // Конец анимации, когда элемент уходит вверх
-        scrub: true,         // Плавная анимация при скролле
-      },
-      rotateY: -60,          // Поворот по горизонтали
-      rotateX: -5,         // Поворот по вертикали
-      translateZ: 100,       // Двигаем изображение вперёд
-      ease: "none"
-    });
-  });
-
-  if (window.innerWidth > 767) {
-    gsap.to(".left-img", {
-        y: 150, 
-        ease: "power1.out",
-        scrollTrigger: {
-            trigger: ".information-block",
-            start: "top bottom", 
-            end: "bottom top",
-            scrub: true 
-        }
-    });
-
-    gsap.to(".right-img", {
-        y: -150, 
-        ease: "power1.out",
-        scrollTrigger: {
-            trigger: ".information-block",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-        }
-    });
-}
 
 
 });
